@@ -143,7 +143,7 @@ namespace Opc.Ua.Com.Client
             lock (Lock)
             {
                 // check if the type model needs to be loaded.
-                if (NamespaceIndexes.Length > 1)
+                if (NamespaceIndexes.Count > 1)
                 {
                     LoadPredefinedNodes(SystemContext, externalReferences);
                 }
