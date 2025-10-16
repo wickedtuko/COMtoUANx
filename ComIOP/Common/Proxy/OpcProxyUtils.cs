@@ -96,7 +96,7 @@ namespace Opc.Ua.Com
             }
 
             // tell the certificate validator about the new certificate.
-            configuration.CertificateValidator.Update(configuration.SecurityConfiguration).Wait();
+            configuration.CertificateValidator.Update(configuration).Wait();
         }
 
         /// <summary>
