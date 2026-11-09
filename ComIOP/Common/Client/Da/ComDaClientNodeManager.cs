@@ -714,7 +714,7 @@ namespace Opc.Ua.Com.Client
         /// <remarks>
         /// This method only handles data change subscriptions. Event subscriptions are created by the SDK.
         /// </remarks>
-        protected override ServiceResult CreateMonitoredItem(ServerSystemContext context, NodeHandle handle, uint subscriptionId, double publishingInterval, DiagnosticsMasks diagnosticsMasks, TimestampsToReturn timestampsToReturn, MonitoredItemCreateRequest itemToCreate, ref long globalIdCounter, out MonitoringFilterResult filterResult, out IMonitoredItem monitoredItem)
+        protected override ServiceResult CreateMonitoredItem(ServerSystemContext context, NodeHandle handle, uint subscriptionId, double publishingInterval, DiagnosticsMasks diagnosticsMasks, TimestampsToReturn timestampsToReturn, MonitoredItemCreateRequest itemToCreate, bool createDurable, ref long globalIdCounter, out MonitoringFilterResult filterResult, out IMonitoredItem monitoredItem)
         {
             filterResult = null;
             monitoredItem = null;
