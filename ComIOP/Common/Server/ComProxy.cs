@@ -624,7 +624,7 @@ namespace Opc.Ua.Com.Server
             }
 
             // look up the client certificate.
-            X509Certificate2 clientCertificate = await m_configuration.SecurityConfiguration.ApplicationCertificate.Find(true);
+            X509Certificate2 clientCertificate = await m_configuration.SecurityConfiguration.ApplicationCertificate.FindAsync(true);
 
             // create a message context to use with the channel.
             ServiceMessageContext messageContext = m_configuration.CreateMessageContext();

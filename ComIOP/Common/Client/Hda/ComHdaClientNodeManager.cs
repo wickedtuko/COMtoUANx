@@ -1396,7 +1396,7 @@ namespace Opc.Ua.Com.Client
             ServerSystemContext context,
             byte[] continuationPoint)
         {
-            Session session = context.OperationContext.Session;
+            ISession session = context.OperationContext.Session;
 
             if (session == null)
             {
@@ -1420,7 +1420,7 @@ namespace Opc.Ua.Com.Client
             ServerSystemContext context,
             HdaHistoryReadRequest request)
         {
-            Session session = context.OperationContext.Session;
+            ISession session = context.OperationContext.Session;
 
             if (session == null)
             {

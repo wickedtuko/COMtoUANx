@@ -54,7 +54,7 @@ namespace Opc.Ua.Com
             }
 
             // check for certificate with a private key.
-            X509Certificate2 certificate = id.Find(true).Result;
+            X509Certificate2 certificate = id.FindAsync(true).Result;
 
             if (certificate != null)
             {
@@ -88,10 +88,10 @@ namespace Opc.Ua.Com
             // add certificate to the trusted peer store so other applications will trust it.
             using (ICertificateStore store = configuration.SecurityConfiguration.TrustedPeerCertificates.OpenStore())
             {
-                X509Certificate2Collection certificateCollection = store.FindByThumbprint(certificate.Thumbprint).Result;
+                X509Certificate2Collection certificateCollection = store.FindByThumbprintAsync(certificate.Thumbprint).Result;
                 if (certificateCollection != null)
                 {
-                    store.Add(certificateCollection[0]).Wait();
+                    store.AddAsync(certificateCollection[0]).Wait();
                 }
             }
 

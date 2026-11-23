@@ -52,7 +52,7 @@ namespace Opc.Ua.Com.Client
             object mangerHandle,
             uint subscriptionId,
             uint id,
-            Session session,
+            ISession session,
             ReadValueId itemToMonitor,
             DiagnosticsMasks diagnosticsMasks,
             TimestampsToReturn timestampsToReturn,
@@ -81,7 +81,8 @@ namespace Opc.Ua.Com.Client
                     samplingInterval,
                     queueSize,
                     discardOldest,
-                    sourceSamplingInterval)
+                    sourceSamplingInterval,
+                    false)
         {
         }
         #endregion
