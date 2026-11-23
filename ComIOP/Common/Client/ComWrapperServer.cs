@@ -282,7 +282,7 @@ namespace Opc.Ua.Com.Client
         /// </summary>
         /// <param name="session">The session.</param>
         /// <param name="args">IdentityToken.</param>
-        void SessionManager_ImpersonateUser(Session session, ImpersonateEventArgs args)
+        void SessionManager_ImpersonateUser(ISession session, ImpersonateEventArgs args)
         {
             if (args.UserTokenPolicy == null) { return; }
 

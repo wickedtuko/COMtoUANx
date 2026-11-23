@@ -67,7 +67,7 @@ namespace Opc.Ua.Com.Client
                 await application.LoadApplicationConfiguration(false);
 
                 // check the application certificate.
-                await application.CheckApplicationInstanceCertificate(false, 0);
+                await application.CheckApplicationInstanceCertificatesAsync(false, 0);
 
                 // start the server.
                 await application.Start(new ComWrapperServer());
