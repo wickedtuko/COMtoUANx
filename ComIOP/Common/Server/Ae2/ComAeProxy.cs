@@ -105,7 +105,7 @@ namespace Opc.Ua.Com.Server
             lock (Lock)
             {
                 // fetch the configuration.
-                m_configuration = Endpoint.ParseExtension<ComAe2ProxyConfiguration>(null);
+                m_configuration = Endpoint.ParseExtension<ComAe2ProxyConfiguration>(null, ComUtils.Telemetry);
 
                 if (m_configuration == null)
                 {
@@ -118,7 +118,7 @@ namespace Opc.Ua.Com.Server
                 m_mapper.Initialize(session, m_configuration);
 
                 // save the configuration.
-                Endpoint.UpdateExtension<ComAe2ProxyConfiguration>(null, m_configuration);
+                Endpoint.UpdateExtension<ComAe2ProxyConfiguration>(null, m_configuration, ComUtils.Telemetry);
                 SaveConfiguration();
 
                 // create the browser.

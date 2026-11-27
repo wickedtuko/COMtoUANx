@@ -1,4 +1,4 @@
-﻿/* ========================================================================
+/* ========================================================================
  * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
@@ -80,10 +80,10 @@ namespace Opc.Ua.Configuration
                 UserNameIdentityToken newUserNameToken = new UserNameIdentityToken()
                 {
                     UserName = userName,
-                    DecryptedPassword = password,
+                    DecryptedPassword = new UTF8Encoding().GetBytes(password),
                 };
 
-                newUserNameToken.Password = new UTF8Encoding().GetBytes(newUserNameToken.DecryptedPassword);
+                newUserNameToken.Password = newUserNameToken.DecryptedPassword;
 
                 m_UserNameIdentityTokens.Add(newUserNameToken.UserName, newUserNameToken);
 
@@ -166,7 +166,7 @@ namespace Opc.Ua.Configuration
                             }
 
                             userNameToken.Password = DecryptPassword(userNameToken.Password);
-                            userNameToken.DecryptedPassword = new UTF8Encoding().GetString(userNameToken.Password);
+                            userNameToken.DecryptedPassword = userNameToken.Password;
 
                             resultTokens.Add(userNameToken.UserName, userNameToken);
                         }

@@ -86,7 +86,7 @@ namespace Opc.Ua.Com.Server
             lock (Lock)
             {
                 // fetch the configuration.
-                m_configuration = Endpoint.ParseExtension<ComProxyConfiguration>(null);
+                m_configuration = Endpoint.ParseExtension<ComProxyConfiguration>(null, ComUtils.Telemetry);
 
                 if (m_configuration == null)
                 {
@@ -99,7 +99,7 @@ namespace Opc.Ua.Com.Server
                 m_browseCacheManager.BrowseBlockSize = m_configuration.BrowseBlockSize;
 
                 // save the configuration.
-                Endpoint.UpdateExtension<ComProxyConfiguration>(null, m_configuration);
+                Endpoint.UpdateExtension<ComProxyConfiguration>(null, m_configuration, ComUtils.Telemetry);
                 SaveConfiguration();
             }
         }

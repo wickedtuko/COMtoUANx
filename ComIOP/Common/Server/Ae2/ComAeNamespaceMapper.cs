@@ -282,7 +282,7 @@ namespace Opc.Ua.Com.Server
         /// </summary>
         private void IndexWellKnownTypes()
         {
-            SystemContext context = new SystemContext();
+            SystemContext context = new SystemContext(ComUtils.Telemetry);
             context.EncodeableFactory = m_session.MessageContext.Factory;
             context.NamespaceUris = m_session.NamespaceUris;
             context.ServerUris = m_session.ServerUris;
