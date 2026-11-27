@@ -655,7 +655,7 @@ namespace Opc.Ua.Com.Server
                 {
                     UserNameIdentityToken copy = new UserNameIdentityToken();
                     copy.PolicyId = userNameToken.PolicyId;
-                    copy.DecryptedPassword = new UTF8Encoding().GetString(userNameToken.Password);
+                    copy.DecryptedPassword = userNameToken.Password;
                     copy.UserName = userNameToken.UserName;
                     copy.EncryptionAlgorithm = userNameToken.EncryptionAlgorithm;
                     identity = new Opc.Ua.UserIdentity(copy);

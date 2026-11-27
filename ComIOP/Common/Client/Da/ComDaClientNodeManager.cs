@@ -714,7 +714,7 @@ namespace Opc.Ua.Com.Client
         /// <remarks>
         /// This method only handles data change subscriptions. Event subscriptions are created by the SDK.
         /// </remarks>
-        protected override ServiceResult CreateMonitoredItem(ServerSystemContext context, NodeHandle handle, uint subscriptionId, double publishingInterval, DiagnosticsMasks diagnosticsMasks, TimestampsToReturn timestampsToReturn, MonitoredItemCreateRequest itemToCreate, bool createDurable, ref long globalIdCounter, out MonitoringFilterResult filterResult, out IMonitoredItem monitoredItem)
+        protected override ServiceResult CreateMonitoredItem(ServerSystemContext context, NodeHandle handle, uint subscriptionId, double publishingInterval, DiagnosticsMasks diagnosticsMasks, TimestampsToReturn timestampsToReturn, MonitoredItemCreateRequest itemToCreate, bool createDurable, MonitoredItemIdFactory idFactory, out MonitoringFilterResult filterResult, out IMonitoredItem monitoredItem)
         {
             filterResult = null;
             monitoredItem = null;
@@ -742,7 +742,7 @@ namespace Opc.Ua.Com.Client
             handle.MonitoredNode = monitoredNode;
 
             // create a globally unique identifier.
-            uint monitoredItemId = Utils.IncrementIdentifier(ref globalIdCounter);
+            uint monitoredItemId = idFactory.GetNextId();
 
             // determine the sampling interval.
             double samplingInterval = itemToCreate.RequestedParameters.SamplingInterval;

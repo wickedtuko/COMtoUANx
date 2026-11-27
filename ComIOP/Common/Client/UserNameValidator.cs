@@ -1,4 +1,4 @@
-﻿/* ========================================================================
+/* ========================================================================
  * Copyright (c) 2005-2019 The OPC Foundation, Inc. All rights reserved.
  *
  * OPC Foundation MIT License 1.00
@@ -75,7 +75,7 @@ namespace Opc.Ua.Com.Client
         /// <returns>True if the list contains a valid item.</returns>
         public bool Validate(UserNameIdentityToken token)
         {
-            return Validate(token.UserName, token.DecryptedPassword);
+            return Validate(token.UserName, new UTF8Encoding().GetString(token.DecryptedPassword));
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace Opc.Ua.Com.Client
                     return false;
                 }
 
-                return (m_UserNameIdentityTokens[name].DecryptedPassword == password);
+                return (new UTF8Encoding().GetString(m_UserNameIdentityTokens[name].DecryptedPassword) == password);
             }
         }
 

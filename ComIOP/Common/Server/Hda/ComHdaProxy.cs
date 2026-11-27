@@ -87,7 +87,7 @@ namespace Opc.Ua.Com.Server
             lock (Lock)
             {
                 // fetch the configuration.
-                m_configuration = Endpoint.ParseExtension<ComHdaProxyConfiguration>(null);
+                m_configuration = Endpoint.ParseExtension<ComHdaProxyConfiguration>(null, ComUtils.Telemetry);
 
                 if (m_configuration == null)
                 {
@@ -103,7 +103,7 @@ namespace Opc.Ua.Com.Server
                 UpdateAggregateMappings(session);
 
                 // save the configuration.
-                Endpoint.UpdateExtension<ComHdaProxyConfiguration>(null, m_configuration);
+                Endpoint.UpdateExtension<ComHdaProxyConfiguration>(null, m_configuration, ComUtils.Telemetry);
                 SaveConfiguration();
             }
         }

@@ -304,8 +304,7 @@ namespace Opc.Ua.Com.Client
                         // create an exception with a vendor defined sub-code.
                         throw new ServiceResultException(new ServiceResult(
                             StatusCodes.BadUserAccessDenied,
-                            "InvalidUserInformation",
-                            "http://opcfoundation.org",
+                            new System.Xml.XmlQualifiedName("InvalidUserInformation", "http://opcfoundation.org"),
                             new LocalizedText(info)));
                     }
                     break;

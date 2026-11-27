@@ -51,6 +51,11 @@ namespace Opc.Ua.Com
 	/// </summary>
 	public static class ComUtils
 	{
+        /// <summary>
+        /// Telemetry context shared by calls into the UA stack that require one.
+        /// </summary>
+        public static readonly Opc.Ua.ITelemetryContext Telemetry = Opc.Ua.DefaultTelemetry.Create(builder => { });
+
 		#region NetApi Function Declarations
 		[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
 			private struct SERVER_INFO_100
